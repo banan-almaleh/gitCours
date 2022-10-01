@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="X-UA-Compatible " content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>LogIn and SignUp</title>
+    <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="forms-container">
+            <div class="signin-signup">
+                <form action="#" class="signInForm">
+                    <h2 class="title">Sign Up</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <!--user icon-->
+                        <input type="text" id="username" name="username" placeholder="username">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <!--email icon-->
+                        <input type="text" id="email" name="email" placeholder="E-mail">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <!--lock icon-->
+                        <input type="password" id="password" name="password" placeholder="Password">
+                    </div>
+                    <!--note don't use tryp="submit" that will case error-->
+                    <input  class="btn solid" id="signUp" name="signup_submit" value="Sign up">
+
+
+                    <div class="socialMedia-text">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                            <!--facebook icon-->
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                            <!--twitter icon-->
+                        </a>
+
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                            <!--google icon-->
+                        </a>
+                    </div>
+
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container"></div>
+    </div>
+
+<script> src = "web.js"</script>
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-auth.js";
+    const firebaseConfig = {
+        apiKey: "AIzaSyCw3wR6XO-niytNlM2FptG_HgB3AWQm8Bs",
+        authDomain: "ftt--app.firebaseapp.com",
+        databaseURL: "https://ftt--app-default-rtdb.firebaseio.com",
+        projectId: "ftt--app",
+        storageBucket: "ftt--app.appspot.com",
+        messagingSenderId: "138260000931",
+        appId: "1:138260000931:web:329fcc775dae4811c6cf16"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const adatabase = getDatabase(app);
+    const auth = getAuth();
+	signUp.addEventListener('click', (e)=>{
+	var email = document.getElementById('email').value;
+	var password = document.getElementById('password').value;
+	var username = document.getElementById('username').value;
+	createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        alert('user created!')
+        // ...
+    })
+    .catch((error)=>{
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        // ..
+        
+    });
+});
+
+        
+    
+</script>
+
+</html>
